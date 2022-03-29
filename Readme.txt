@@ -1,0 +1,1 @@
+Link EB: http://my-enviroment.eba-mufvieb2.us-east-1.elasticbeanstalk.com/filteredimage?image_url=https://thuthuatnhanh.com/wp-content/uploads/2019/10/hinh-anh-gai-xinh-ha-noi.jpg
