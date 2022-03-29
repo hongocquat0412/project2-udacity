@@ -33,18 +33,18 @@ import {filterImageFromURL, deleteLocalFiles} from './util/util';
   
   // Root Endpoint
   // Displays a simple message to the user
-  app.get( "/", async ( req, res ) => {
+  app.get( "/", async ( req:express.Request, res:express.Response ) => {
     res.send("try GET /filteredimage?image_url={{}}")
   } );
 
-  app.get( "/filteredimage", async ( req, res ) => {
+  app.get( "/filteredimage", async ( req:express.Request, res:express.Response ) => {
     // 1. validate the image_url query.
-    const image = req.query.image_url;
-    if(!image) {
-      res.status(404).send("you need to import images");
+    const image_url = req.query.image_url as string;
+    if(!image_url) {
+      res.status(400).send("you need to import images");
     }
     // 2. call filterImageFromURL(image_url) to filter the image
-    let images:string = await filterImageFromURL(image);
+    let images:string = await filterImageFromURL(image_url);
     // 3. send the resulting file in the response
     // AND
     // 4. deletes any files on the server on finish of the response
